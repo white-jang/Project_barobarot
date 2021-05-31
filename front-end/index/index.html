@@ -1,0 +1,405 @@
+<!-- 2020. 10.1 하유민 메인페이지 첫번째 -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>바로바롯</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- Header -->
+        <div class="header">
+            <div class="welcome">
+                <span class="welcome-margin">
+                    안녕하세요 User 님! 
+                </span>
+            </div>
+            <!-- Header 양 쪽 margin 주기 위해 box 따로 만듦 -->
+            <div class="header-box">
+                <a href="#">
+                    <img src="../base/img/logo.gif" alt="logo">
+                </a>
+                <div class="search">
+                    <input type="text">
+                    <a href="#" class="zoom"></a>
+                </div>
+                <div class="reservation">
+                    <ul id="sign-log-group">
+                        <li class="sign-log">
+                            <a class="signin" href="#">회원가입 </a>
+                        </li>
+                        <li class="sign-log">
+                            <a class="signin" href="#">로그인 </a>
+                        </li>
+                        <li class="sign-log">
+                            <a class="signin" href="#">로그아웃 </a>
+                        </li>
+                        <li class="sign-log">
+                            <a id="reservation" href="#">예약확인 </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <!-- 롤링배너 부분 -->
+        <div class="slide">
+            <input type="radio" name="pos" id="pos1" checked>
+            <input type="radio" name="pos" id="pos2">
+            <input type="radio" name="pos" id="pos3">
+            <input type="radio" name="pos" id="pos4">
+        
+            <!-- 슬라이드 이미지 -->
+            <ul>
+                <li><img src="banner1.jpg" alt="logo" width="920px" height="470px"></li>
+                <li><img src="banner2.jpg" alt="logo" width="920px" height="470px"></li>
+                <li><img src="banner3.jpg" alt="logo" width="920px" height="470px"></li>
+                <li><img src="banner4.jpg" alt="logo" width="920px" height="470px"></li>
+            </ul>
+
+            <!-- 슬라이드 단추  -->
+            <p class="bullet">
+                <label for="pos1">1</label>
+                <label for="pos2">2</label>
+                <label for="pos3">3</label>
+                <label for="pos4">4</label>
+            </p>
+        </div>
+        <div class="content">
+            <!-- 총 몇 개의 상품이 있는지 알려주는 div 박스  -->
+            <div class="first-info-box">
+                <!-- 하이마트몰에서는 총 몇 개의 상품이 있는지 알려주는 문구가 있길래 넣어봤습니다..  -->
+                <!-- 상품 모델의 총 개수를 n 에 넣으면 될 것 같은데 구현 불가능 하면 빼면 될 것 같아요 . -->
+                <span id="first-info-bold">총 n개</span> 
+                <span id="first-info-normal">의 상품이 있습니다. </span>
+            </div>
+            <!-- 메인 페이지 상품 사진, 설명 시작 -->
+            <div class="list">
+                <!-- location.href='눌렀을 때 옮겨갈 주소' (제품 상세페이지로 이동) -->
+                <div class="product" onclick= "location.href='#' ">
+                    <div class="pictures">
+                        <!-- 클릭했을 때 상품 상세설명으로 이동 -->
+                        <!-- 상품 사진 크기 200x200으로 고정.  -->
+                        <a href="#">
+                            <img src="../base/img/example1.jpg" alt="logo" width="200px" height="200px">
+                        </a>
+                    </div>
+
+                    <div id="product-detail">
+                        <p id="product-title">
+                            <a id="product-title-hover" href="#">
+                                <!-- 모델에서 상품명 부분. 하이마트몰 보니까 상품명이 다 두 줄 정도로 길어서 그 정도 길이로 설정해놨습니다. -->
+                               *블랙에디션* 클라윈드 양문형냉장고 CRF-SN570BDC [570L]
+                            </a>
+                        </p>
+                        <!-- 가격부분 -->
+                        <p id="original-product-price">
+                            <!-- 모델에서 숫자만 가격으로 -->
+                            <span class="product-original-price">50000000000000</span>
+                            <span class="product-original-price2">원</span>
+                        </p>
+                        <p>
+                        <!-- 여기에 할인가 -->
+                            <span class="product-price">450,000</span>
+                            <span class="product-price2">원</span>
+                            <span class="product-price2">최대혜택가</span>
+                        </p>
+                        <!-- 별 img, 평점 부분 -->
+                        <p id="grade-group">
+                            <!-- <img src="../base/img/star.png" alt="star" width="20px" height="20px"> -->
+                            <a id="test">
+                                ★
+                            </a>
+                        <!-- 평점 부분 -->
+                            <span id="grade">4.5</span>
+                        </p>
+                        <p>
+                            <button id="delivery">무료배송</button>
+                            <button id="delivery">오늘배송</button>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="product" onclick= "location.href='#' ">
+                    <div class="pictures">
+                        <a href="#">
+                            <img src="../base/img/example2.jpg" alt="logo" width="200px" height="200px">
+                        </a>
+                    </div>
+                    <div id="product-detail">
+                        <p id="product-title">
+                            <a id="product-title-hover" href="#">
+                                <!-- 모델에서 상품명 부분. 하이마트몰 보니까 상품명이 다 두 줄 정도로 길어서 그 정도 길이로 설정해놨습니다. -->
+                                스탠드 에어컨 (매립배관형) FQ20S9CWA1M (65.9㎡) [전국기본설치무료]
+                            </a>
+                        </p>
+                        <p id="original-product-price">
+                            <!-- 모델에서 숫자만 가격으로 -->
+                            <span class="product-original-price">500000000000000000,000</span>
+                            <span class="product-original-price2">원</span>
+                        </p>
+                        <p>
+                        <!-- 여기에 할인가 -->
+                            <span class="product-price">45000000000000,000</span>
+                            <span class="product-price2">원</span>
+                            <span class="product-price2">최대혜택가</span>
+                        </p>
+                        <p id="grade-group">
+                            <!-- <img src="../base/img/star.png" alt="star" width="20px" height="20px"> -->
+                            <a id="test">
+                                ★
+                            </a>
+                        <!-- 평점 부분 -->
+                            <span id="grade">4.5</span>
+                        </p>
+                        <p>
+                            <button id="delivery">무료배송</button>
+                            <button id="delivery">오늘배송</button>
+                        </p>
+                    </div>
+                </div>
+                <div class="product" onclick= "location.href='#' ">
+                    <div class="pictures">
+                        <a href="#">
+                            <img src="../base/img/example3.jpg" alt="logo" width="200px" height="200px">
+                        </a>
+                    </div>
+                    <div id="product-detail">
+                        <p id="product-title">
+                            <a id="product-title-hover" href="#">
+                                <!-- 모델에서 상품명 부분. 하이마트몰 보니까 상품명이 다 두 줄 정도로 길어서 그 정도 길이로 설정해놨습니다. -->
+                                스탠드 에어컨 (매립배관형) FQ22L9DRA1M (74.5㎡) 럭셔리
+                            </a>
+                        </p>
+                        <p id="original-product-price">
+                            <!-- 모델에서 숫자만 가격으로 -->
+                            <span class="product-original-price">500,000</span>
+                            <span class="product-original-price2">원</span>
+                        </p>
+                        <p>
+                        <!-- 여기에 할인가 -->
+                            <span class="product-price">450,000</span>
+                            <span class="product-price2">원</span>
+                            <span class="product-price2">최대혜택가</span>
+                        </p>
+                        <p id="grade-group">
+                            <!-- <img src="../base/img/star.png" alt="star" width="20px" height="20px"> -->
+                            <a id="test">
+                                ★
+                            </a>
+                        <!-- 평점 부분 -->
+                            <span id="grade">4.5</span>
+                        </p>
+                        <p>
+                            <button id="delivery">무료배송</button>
+                        </p>
+                    </div>
+                </div>
+                <div class="product" onclick= "location.href='#' ">
+                    <div class="pictures">
+                        <a href="#">
+                            <img src="../base/img/example4.jpg" alt="logo" width="200px" height="200px">
+                        </a>
+                    </div>
+                    <div id="product-detail">
+                        <p id="product-title">
+                            <a id="product-title-hover" href="#">
+                                <!-- 모델에서 상품명 부분. 하이마트몰 보니까 상품명이 다 두 줄 정도로 길어서 그 정도 길이로 설정해놨습니다. -->
+                                스탠드 무풍 에어컨 (매립배관형) AF18RX975CAK (58.5㎡) 공기청정
+                            </a>
+                        </p>
+                        <p id="original-product-price">
+                            <!-- 모델에서 숫자만 가격으로 -->
+                            <span class="product-original-price">500,000</span>
+                            <span class="product-original-price2">원</span>
+                        </p>
+                        <p>
+                        <!-- 여기에 할인가 -->
+                            <span class="product-price">450,000</span>
+                            <span class="product-price2">원</span>
+                            <span class="product-price2">최대혜택가</span>
+                        </p>
+                        <p id="grade-group">
+                            <!-- <img src="../base/img/star.png" alt="star" width="20px" height="20px"> -->
+                            <a id="test">
+                                ★
+                            </a>
+                        <!-- 평점 부분 -->
+                            <span id="grade">4.5</span>
+                        </p>
+                        <p>
+                            <button id="delivery">무료배송</button>
+                        </p>
+                    </div>
+                </div>
+                <div class="product" onclick= "location.href='#' ">
+                    <div class="pictures">
+                        <a href="#">
+                            <img src="../base/img/example5.jpg" alt="logo" width="200px" height="200px">
+                        </a>
+                    </div>
+                    <div id="product-detail">
+                        <p id="product-title">
+                            <a id="product-title-hover" href="#">
+                                <!-- 모델에서 상품명 부분. 하이마트몰 보니까 상품명이 다 두 줄 정도로 길어서 그 정도 길이로 설정해놨습니다. -->
+                                스탠드 에어컨 둘레바람 WPVS17CDPG (56.2㎡) [기본설치비 무료]
+                            </a>
+                        </p>
+                        <p id="original-product-price">
+                            <!-- 모델에서 숫자만 가격으로 -->
+                            <span class="product-original-price">500,000</span>
+                            <span class="product-original-price2">원</span>
+                        </p>
+                        <p>
+                        <!-- 여기에 할인가 -->
+                            <span class="product-price">450,000</span>
+                            <span class="product-price2">원</span>
+                            <span class="product-price2">최대혜택가</span>
+                        </p>
+                        <p id="grade-group">
+                            <!-- <img src="../base/img/star.png" alt="star" width="20px" height="20px"> -->
+                            <a id="test">
+                                ★
+                            </a>
+                        <!-- 평점 부분 -->
+                            <span id="grade">4.5</span>
+                        </p>
+                        <p>
+                            <button id="delivery">무료배송</button>
+                            <button id="delivery">오늘배송</button>
+                        </p>
+                    </div>
+                </div>
+                <div class="product" onclick= "location.href='#' ">
+                    <div class="pictures">
+                        <a href="#">
+                            <img src="../base/img/example6.jpg" alt="logo" width="200px" height="200px">
+                        </a>
+                    </div>
+                    <div id="product-detail">
+                        <p id="product-title">
+                            <a id="product-title-hover" href="#">
+                                <!-- 모델에서 상품명 부분. 하이마트몰 보니까 상품명이 다 두 줄 정도로 길어서 그 정도 길이로 설정해놨습니다. -->
+                                스탠드 에어컨 둘레바람 WPVS17CDPG (56.2㎡) [기본설치비 무료]
+                            </a>
+                        </p>
+                        <p id="original-product-price">
+                            <!-- 모델에서 숫자만 가격으로 -->
+                            <span class="product-original-price">500,000</span>
+                            <span class="product-original-price2">원</span>
+                        </p>
+                        <p>
+                        <!-- 여기에 할인가 -->
+                            <span class="product-price">450,000</span>
+                            <span class="product-price2">원</span>
+                            <span class="product-price2">최대혜택가</span>
+                        </p>
+                        <p id="grade-group">
+                            <!-- <img src="../base/img/star.png" alt="star" width="20px" height="20px"> -->
+                            <a id="test">
+                                ★
+                            </a>
+                        <!-- 평점 부분 -->
+                            <span id="grade">4.5</span>
+                        </p>
+                        <p>
+                            <button id="delivery">무료배송</button>
+                        </p>
+                    </div>
+                </div>
+                <div class="product" onclick= "location.href='#' ">
+                    <div class="pictures">
+                        <a href="#">
+                            <img src="../base/img/example2.jpg" alt="logo" width="200px" height="200px">
+                        </a>
+                    </div>
+                    <div id="product-detail">
+                        <p href="" id="product-title">
+                            <a id="product-title-hover" href="#">
+                                <!-- 모델에서 상품명 부분. 하이마트몰 보니까 상품명이 다 두 줄 정도로 길어서 그 정도 길이로 설정해놨습니다. -->
+                                스탠드 에어컨 둘레바람 WPVS17CDPG (56.2㎡) [기본설치비 무료]
+                            </a>
+                        </p>
+                        <p id="original-product-price">
+                            <!-- 모델에서 숫자만 가격으로 -->
+                            <span class="product-original-price">500,0000000000000000</span>
+                            <span class="product-original-price2">원</span>
+                        </p>
+                        <p>
+                        <!-- 여기에 할인가 -->
+                            <span class="product-price">450,000</span>
+                            <span class="product-price2">원</span>
+                            <span class="product-price2">최대혜택가</span>
+                        </p>
+                        <p id="grade-group">
+                            <!-- <img src="../base/img/star.png" alt="star" width="20px" height="20px"> -->
+                            <a id="test">
+                                ★
+                            </a>
+                        <!-- 평점 부분 -->
+                            <span id="grade">4.5</span>
+                        </p>
+                        <p>
+                            <button id="delivery">무료배송</button>
+                            <button id="delivery">오늘배송</button>
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <ul id="page-num-group">
+                        <li class="page-num-list"><a class="page-num" href="#">1</a></li>
+                        <li class="page-num-list"><a class="page-num" href="#">2</a></li>
+                        <li class="page-num-list"><a class="page-num" href="#">3</a></li>
+                        <li class="page-num-list"><a class="page-num" href="#">4</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Footer -->
+        <div class="footer">
+            <!-- Footer 양쪽 margin 주기 위해 가운데 box 생성 -->
+            <div class="box">
+                <img src="../base/img/footLogo.png" alt="footLogo">
+                <div class="description">
+                    <ul>
+                        <li><strong>롯데하이마트 주식회사</strong></li>
+                    </ul>
+                    <ul>
+                        <li>대표이사 황영근, 서울 강남구 삼성로 156</li>
+                        <li>사업자등록번호 : 104-81-16860</li>
+                    </ul>
+                    <ul>
+                        <li>통신판매업 신고: 제2008-서울강남-2198호 [<a href="#">사업자정보확인</a>]</li>
+                        <li>의료기기판매업 신고 : 제431호 건강기능식품판매업 신고 : 제2019-0105489호</li>
+                    </ul>
+                    <ul>
+                        <li><span class="light-gray-text">고객지원센터 : 080-770-0070</span></li>
+                        <li><span class="light-gray-text">쇼핑몰고객센터 : 080-780-0070</span></li>
+                        <li><span class="light-gray-text">홈케어/이전설치 : 1588-9030 : 080-780-0070</span></li>
+                        <li>FAX : 050-2333-1358</li>
+                        <li><a href="#">himart.webmaster@lotte.net</a></li>
+                    </ul>
+                    <ul>
+                        <li>호스팅 서비스사업자 : 롯데하이마트 주식회사</li>
+                    </ul>
+                    <ul>
+                        <li>COPYRIGHTⓒ 2003-2020 <span class="red-text">LOTTEHIMART</span> CO., LTD. ALL RIGHT RESERVED.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <script src="../base/base.js"></script>
+</body>
+
+</html>

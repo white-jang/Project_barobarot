@@ -6,40 +6,63 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-@import url(".css");
+
 /* 자주 쓰는 색 */
+
 :root {
     --red: #f5232a;
     --footer-gray: #6A747C;
+    --header-gray: #e2e2e2;
+    --container-width: 70vw;
 }
 
 body {
     font-family: 'Roboto', 'Noto Sans KR', '맑은고딕', Malgun Gothic, dotum, '돋음', arial, sans-serif;
+    /* 가로 스크롤 바 없애기 */
+    overflow-x: hidden;
 }
 
 
 /* ************************************************************ */
 
+.container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
 /* Header */
 
 .header {
-    width: 100%;
+    /* width: 80vw; */
     border-bottom: 1px solid var(--red);
-    padding: 0 10vw;
+    /* padding: 0 15vw; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .header-box {
-    width: 80vw;
+    width: var(--container-width);
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    margin-top: 5vh;
+    height: 86px;
+    position: relative;
+}
+
+.header-img {
+    max-height: 64px;
+    min-width: 100%;
 }
 
 .search {
-    width: 508px;
-    margin-right: 3vw;
-    height: 50px;
+    margin-left: 20px;
+    min-width: 507px;
+    max-width: 507px;
+    margin-right: auto;
+    height: 47px;
     display: flex;
     align-items: center;
     position: relative;
@@ -66,18 +89,10 @@ body {
 .zoom {
     width: 26px;
     height: 26px;
-    background: url('./../img/zoom.png') no-repeat 0 0;
     position: absolute;
     top: 10px;
     right: 16px;
     line-height: 16px;
-}
-
-.reservation {
-    display: flex;
-    align-items: center;
-    flex-grow: 1;
-    min-width: 74px;
 }
 
 .header span {
@@ -86,42 +101,259 @@ body {
     font-size: 17px;
 }
 
-.reservation a {
+/* 유저 박스 오른쪽 공간을 맞추기 위한 스타일 */
+.space-for-margin {
+    width: 167px;
+}
+
+/* nav link 관련 클래스들  */
+
+.nav-link>a,
+.nav-link>a:visited {
+    color: black;
+    text-decoration: none;
+    font-size: 13pt;
+}
+
+.nav-link>a:hover {
+    color: var(--red);
+    text-decoration: underline;
+}
+
+.nav-link>span {
+    color: gray;
+}
+
+.bold-text {
+    font-weight: bold;
+}
+
+/* 예약확인도 로그인 .. 이랑 묶어서 해서 필요 없어졌어요  */
+
+
+/* .reservation a {
     color: var(--red);
     text-decoration: none;
     cursor: pointer;
+} */
+
+
+/* welcome 문구 */
+
+.profile_wrap {
+    min-width: 180px;
+    min-height: 50px;
+    padding: 5px 15px 5px 5px;
+    text-align: center;
+    margin-left: 1vw;
+    /* padding: 10px; */
+    /* border */
+    border: 1px solid #e2e2e2;
+}
+
+.profile_img {
+    float: left;
+}
+
+.profile_box {
+    /* float: left; */
+    /* width: 150px; */
+    padding: 5px 0 5px 4vw;
+    text-align: left;
+    height: 15px;
+    line-height: 20px;
+    /* background-color: #202020 */
+}
+
+.profile_name {
+    float: left;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: Noto Sans KR;
+}
+
+.profile_id {
+    float: left;
+    padding-left: 5px;
+    line-height: 20px;
+}
+
+.profile_id .id {
+    text-align: left;
+    font-size: 10px;
+    font-weight: 700;
+    font-family: Noto Sans KR;
+}
+
+.profile_name .name {
+    font-size: 13px;
+    font-weight: 700;
+    font-family: Noto Sans KR;
+    border-right: 1px solid #e2e2e2;
+    padding-right: 5px;
+}
+
+.profile_email .email {
+    font-size: 11px;
+    color: grey;
+}
+
+.profile_not_login {
+    float: left;
+    padding-left: 10px;
+    height: 50px;
+    line-height: 50px;
+    /* line-height: 20px; */
+    text-align: center;
+}
+
+.profile_not_login .not_login {
+    font-size: 11px;
+    color: grey;
+}
+
+
+/* .welcome-margin{
+    margin-top: 15px;
+    margin-right: 100px;
+} */
+
+.user-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid var(--header-gray);
+}
+
+.user-box {
+    width: var(--container-width);
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    height: 47px;
+}
+
+.sign-log-group {
+    display: flex;
+    align-items: center;
+}
+
+
+/* 로그인 회원가입 로그아웃 예약확인 */
+
+.sign-log a {
+    color: #585858;
+    padding: 0 9px;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.sign-log:not(:last-child) a {
+    border-right: 1px solid grey;
+}
+
+.sign-log a.reservation {
+    color: #f5232a;
+}
+
+.signin:hover {
+    cursor: pointer;
+    color: #f5232a;
 }
 
 
 /* ************************************************************ */
 
+
 /* Footer */
 
 .footer {
-    height: 200px;
     background-color: #232a32;
-    padding: 0 20vw;
+    /* padding: 0 20vw; */
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
 }
 
-.footer .box {
+.footer-box {
+    width: var(--container-width);
+    margin: 0 auto;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.box img {
+.footer-down img {
     margin-right: 30px;
+    max-width: 100%;
+    max-height: 37px;
 }
+
+.footer-up,
+.footer-down {
+    padding: 17px 0 14px;
+}
+
+/* 이용약관, 개인정보처리방침 ~~ 깃허브 */
+.footer-up {
+    display: flex;
+    border-bottom: 1px solid #384048;
+    font-size: 12px;
+}
+
+.footer-up li {
+    height: 32px;
+    min-width: 30px;
+    margin-right: 13px;
+    color: #aeb3bb;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.footer-up a {
+    text-decoration: none;
+    color: #aeb3bb;
+}
+
+.footer-up .gray {
+    color: #aeb3bb;
+}
+
+.footer-up .white {
+    color: #ecedee;
+}
+
+.footer-up .github {
+    display: block;
+    width: 80px;
+    height: 30px;
+    padding: 0 11px;
+    color: #d3d3d5;
+    border: 1px solid #6a747c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-up .github:hover {
+    background-color: #aeb3bb;
+    font-weight: bold;
+    color: #111;
+}
+
+/* 로고 포함 푸터 아래 항목들 */
+.footer-down {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 
 .description {
-    width: 1080px;
-    font-family: '맑은고딕',
-    Malgun Gothic,
-    dotum,
-    '돋음',
-    arial,
-    sans-serif;
+    /* width: 1080px; */
+    font-family: '맑은고딕', Malgun Gothic, dotum, '돋음', arial, sans-serif;
     font-size: 11px;
     color: var(--footer-gray);
 }
@@ -138,7 +370,8 @@ body {
     display: flex;
 }
 
-.description ul:first-child, .description ul:nth-last-child(2) {
+.description ul:first-child,
+.description ul:nth-last-child(2) {
     margin-bottom: 10px;
 }
 
@@ -154,10 +387,19 @@ body {
     color: var(--red);
 }
 
+
 /* ************************************************************ */
 
+
 /* Content */
-.product {
-    border-style: solid;
-    border-color: black;
+
+.content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+}
+
+.content-container {
+    width: var(--container-width);
 }

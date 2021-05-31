@@ -1,0 +1,60 @@
+{% extends '../base.html' %} {% load mathfilters %} {% block content %}
+<h1>결제 진행중 확인</h1><br>
+
+<!-- 엔지니어 데이터 값 불러와서 저장해야됨 -->
+<form action="{% url 'payments:paymentproduct_create' products.id user.id  %}" method="post">
+    {% csrf_token %}
+    <!-- product 데이터, products 안에 값 -->
+    <span>
+        {{products.product_name}}<br>
+        <img src="{{ products.product_image.url }}" alt="{{products.product_name}}" width="100px" height="100px">
+        <br>
+        {{products.product_name}} : 결제금액 :{{products.set_saleprice | mul:amount}} <br>
+
+        {{products.engineer.name}} <br>
+    </span>
+
+    <span>
+        상품 번호
+        {{ products.pk }} <br>
+
+        개수
+        <input type="text" class="form-control" name="amount" value="{{ amount }}"><br>
+
+        주소
+        <input type="text" class="form-control" name="adress" value="{{ paymentproducts.address }}"><br>
+
+        작성일
+        <!-- {{ products.created_time | date:"y-m-d H:i" }}<br> -->
+
+        배송날짜
+        <input type="date" Placeholder="mm-dd-yyyy" name="visit_date" value="{{ paymentproducts.visit_date }}" float="right"><br>
+
+        배송시간
+        {% comment %} <input type="time" Placeholder="time" name="visit_time" value="{{ form }}" float="right"><br> {% endcomment %}
+        {{ form }} 시
+    </span>
+
+    <select name="engineer-pk">
+
+        {% for a in engineers %}
+
+        <option value="{{ a.pk }}"> {{a.name}} </option>
+        {% endfor %}
+
+    </select>
+    <br>
+    <br>
+    <br> --받는사람--
+    <br>
+    </table>
+    배송 받는 사람 : <input type="text" name='receiver_name'> <br> 
+    받는 사람 연락처 : <input type="text" name='receiver_number'> <br> 
+    받는 사람 비상 연락처 : <input type="text" name='receiver_number2'> <br> 
+    우편 번호 : <input type="number" name='zip_code'> <br>
+    주소 : <input type="text"name='address'> <br>
+    배송 메세지 : <input type="text"name='delivery_message'> <br>
+    <button class="btn btn-primary" type="submit">게시글 저장</button>
+</form>
+
+{% endblock %}

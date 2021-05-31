@@ -1,0 +1,182 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineer_List</title>
+    <link rel="stylesheet" href="{% static 'css/engineers_list.css' %}">
+</head>
+
+<body>
+    <div class="engineer-list-nav-bar">
+        <h1 class='engineer-list-center'>
+            <span class='engineer-text'>설치 기사 선택</span>
+        </h1>
+        <a href='#'>
+            <span class='engineer-close' onclick="window.close();">X</span>
+        </a>
+    </div>
+
+    
+    <div class="card-list">
+        
+        
+        <div class="card-list-item">
+            <div class="card-wrap">
+            {% for engineer in engineers %}
+                {% for check in valiable_engs %}
+                    {% if engineer.name == check.name %}
+                        {{engineer.name}}
+                    
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+
+            {% for engineer in engineers %}
+            
+
+                {% if not engineer.schedule.exists %}
+                    <div class="card-wrap">
+                    스케줄 없는 사람 <br>
+                    <!-- 기사님 이미지 -->
+                    <div class="pic-border">
+                        <img class="engineer_pic" alt="engineer" src="{{engineer.image.url}}" width="220px" height="220px"> <br>
+                    </div>
+                    <!-- 기사님 설명 -->
+                    <!-- 이름+번호 링크 -->
+                    <div class="text-group">
+                        <p>
+                            <a id="engineer-decide">
+                                <span class="engineer-name">{{engineer.name}}</span> <br>
+                                <span class="engineer-num">{{engineer.number}}</span> <br>
+                            </a>
+                            <div class="engineer-addline">
+                                <!-- 소속회사 링크 -->
+                                <a id="engineer-decide">
+                                    <span class="engineer-in">{{engineer.affiliation}}</span> <br>
+                                </a>
+                                <!-- 리뷰보기 버튼 링크 -->
+                                <button class="engineer-review-button" onclick="javascript:void(window.open('{% url 'engineers:read_review' engineer.pk %}', 'reviews', 'width=900, height=600'))">리뷰 보기</button>
+                    
+                                <!--부모창에 전달 숨김 데이터-->
+                                <a id="engineer-info" href="{% url 'engineers:detail' engineer.pk %}">
+                                    <span id="pk" style="display:none">{{engineer.pk}}</span>
+                                    <span id="name" style="display:none">{{engineer.name}}</span>
+                                    <span id="number" style="display:none">{{engineer.number}}</span>
+                                    <span id="affiliation" style="display:none">{{engineer.affiliation}}</span>
+                                    <span id="image" style="display:none">{{ engineer.image.url }}</span>
+                                </a>
+                                <button class="engineer-review-button" id='engineer-decide'>기사 선택</button>
+                            </div>
+                        </p>
+                    </div>
+            
+                {% else %}
+                    
+                    {% for a in engineer.schedule.all %}
+                    <!-- 이날이 기사님의 스케쥴에 있지 않으면-->
+                        {% if a.scheduled_date|date:"Y-m-d" == date and a.scheduled_time|date:"H:i:s" == time%}
+                            {{a.scheduled_date|date:"Y-m-d"}}
+                            이날 스케줄 있는 사람 횟수 : {{ forloop.parentloop.counter0 }}  <!--선택한 날짜에 스케쥴 있으면 count + 1 -->
+                            
+                        {% endif %}
+
+                        {% if forloop.last %}
+                            {% if forloop.parentloop.counter0 == 0 %}
+                                <div class="card-wrap">
+                                애는 이날 이시간 가능함 1? : {{  forloop.parentloop.counter0 }}
+                                <div class="pic-border">
+                                    <img class="engineer_pic" alt="engineer" src="{{engineer.image.url}}" width="220px" height="220px"> <br>
+                                </div>
+                                <!-- 기사님 설명 -->
+                                <!-- 이름+번호 링크 -->
+                                <div class="text-group">
+                                    <p>
+                                        <a id="engineer-decide">
+                                            <span class="engineer-name">{{engineer.name}}</span> <br>
+                                            <span class="engineer-num">{{engineer.number}}</span> <br>
+                                        </a>
+                                        <div class="engineer-addline">
+                                            <!-- 소속회사 링크 -->
+                                            <a id="engineer-decide">
+                                                <span class="engineer-in">{{engineer.affiliation}}</span> <br>
+                                            </a>
+                                            <!-- 리뷰보기 버튼 링크 -->
+                                            <button class="engineer-review-button" onclick="javascript:void(window.open('{% url 'engineers:read_review' engineer.pk %}', 'reviews', 'width=900, height=600'))">리뷰 보기</button>
+                            
+                                            
+                                            <!--부모창에 전달 숨김 데이터-->
+                                            <a id="engineer-info" href="{% url 'engineers:detail' engineer.pk %}">
+                                                <span id="pk" style="display:none">{{engineer.pk}}</span>
+                                                <span id="name" style="display:none">{{engineer.name}}</span>
+                                                <span id="number" style="display:none">{{engineer.number}}</span>
+                                                <span id="affiliation" style="display:none">{{engineer.affiliation}}</span>
+                                                <span id="image" style="display:none">{{ engineer.image.url }}</span>
+                                            </a>
+                                            
+                                                <button class="engineer-review-button" id='engineer-decide'>기사 선택</button>
+                                        
+                                            </div>
+                                        </p>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                
+
+                {% endif %}
+            {% endfor %}
+            
+        </div>
+    </div>
+    
+                {% comment %} {% if forloop.counter0 == 0 %}  {% endcomment %}
+                    {% comment %} <div class="card-wrap"> {% endcomment %}
+                        <!-- 기사님 이미지 -->
+                        {% comment %} <div class="pic-border">
+                            <img class="engineer_pic" alt="engineer" src="{{engineer.image.url}}" width="220px" height="220px"> <br>
+                        </div>
+                        <!-- 기사님 설명 -->
+                        <!-- 이름+번호 링크 -->
+                        <div class="text-group">
+                            <p>
+                                <a id="engineer-decide">
+                                    <span class="engineer-name">{{engineer.name}}</span> <br>
+                                    <span class="engineer-num">{{engineer.number}}</span> <br>
+                                </a>
+                                <div class="engineer-addline">
+                                    <!-- 소속회사 링크 -->
+                                    <a id="engineer-decide">
+                                        <span class="engineer-in">{{engineer.affiliation}}</span> <br>
+                                    </a>
+                                    <!-- 리뷰보기 버튼 링크 -->
+                                    <button class="engineer-review-button" onclick="javascript:void(window.open('{% url 'engineers:read_review' engineer.pk %}', 'reviews', 'width=900, height=600'))">리뷰 보기</button>
+                    
+                                    
+                                    <!--부모창에 전달 숨김 데이터-->
+                                    <a id="engineer-info" href="{% url 'engineers:detail' engineer.pk %}">
+                                        <span id="pk" style="display:none">{{engineer.pk}}</span>
+                                        <span id="name" style="display:none">{{engineer.name}}</span>
+                                        <span id="number" style="display:none">{{engineer.number}}</span>
+                                        <span id="affiliation" style="display:none">{{engineer.affiliation}}</span>
+                                        <span id="image" style="display:none">{{ engineer.image.url }}</span>
+                                    </a>
+                                    
+                                        <button class="engineer-review-button" id='engineer-decide'>기사 선택</button>
+                                
+                                    </div>
+                                </p>
+                            </div>
+                        </div> {% endcomment %}
+                    {% comment %} </div> {% endcomment %}
+                {% comment %} {% endif %}  {% endcomment %}
+                
+            
+            
+    <script src="{% static 'js/engineers_list.js' %}"></script>
+</body>
+
+</html>

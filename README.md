@@ -4,11 +4,17 @@
 
 ## 👨‍👨‍👨‍👧‍👧Team member
 
-- [최민석](https://github.com/minsgy) : Back-end(Minseok), Readme write, 설치 기사 모듈 구현,
+- [최민석](https://github.com/minsgy) : Full-stack(Minseok), Readme write
 - [이승준](https://github.com/g0709-19) : Front-end(LeeJun)
 - [장하얀](https://github.com/white-jang) : Front-end(White)
 - [박형민](https://github.com/thalals/) : Back-end(Hmin)
 - [하유민](https://github.com/qhahd78) : Front-end(Umin)
+
+## 📑 Project Specification
+
+- [한달음 - Google Docs](https://docs.google.com/document/d/1US57lggIKGL0CG4JkgxOzRyGLcLDPqiVBlbb1MafzIs/edit?usp=sharing)
+- [한달음 - Page Configuration](https://jamboard.google.com/d/1oTOr-Hq79dz_WfDCB2bpPPcNucm-LPVugLqNfSbqENk/edit?usp=sharing)
+- [한달음 - Front 일정](https://jamboard.google.com/d/1Lw_6KPWb2pZOgRV8OHlK6zgUdp-2ejF4nUS2aaxNWSU/edit?usp=sharing)
 
 ## 프로젝트 실행 법
 
@@ -18,20 +24,24 @@
 - Windows `. <가상환경 이름>/scripts/activate`
 - Mac `. <가상환경 이름>/bin/activate`
 
-2. Django, Pillow 설치
+2. Django, Pillow, django-mathfilters 설치
 
 - `pip install django==2.1.1`
 - `pip install pillow`
+- `pip install django-mathfilters`
 
 3. 모델 등록하기
 
 - `python manage.py makemigrations`
 - `python manage.py migrate`
 
-
 4. Superuser 생성하기
 
 - `python manage.py createsuperuser`
+
+5. Database File Create
+
+- URL `/products_test` 붙혀서 입력. 엔지니어 모델 11개, 상품 모델 40개 DB CREATE
 
 ## Installation
 

@@ -28,6 +28,8 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 THIRD_PARTY_APPS = [
+    'django.contrib.humanize', # 금액 표시 ',' 표시용
+    'mathfilters',# 템플릿 필터 수학 연산용
 ]  # 패키지 기능 app
 
 PROJECT_APPS = [  # ADMIN이 만든 APP
@@ -115,7 +117,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ko-kr' # time field
 
 TIME_ZONE = 'Asia/Seoul' # Asia 시간 대로 변경.
 

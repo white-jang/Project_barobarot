@@ -1,35 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>바로바롯</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="base.css">
 </head>
+
 <body>
     <div class="container">
 
         <!-- Header -->
         <div class="header">
+            <div class="user-box">
+                <ul class="sign-log-group">
+                    <li class="sign-log">
+                        <a class="signin" href="#">회원가입</a>
+                    </li>
+                    <li class="sign-log">
+                        <a class="signin" href="#">로그인</a>
+                    </li>
+                    <li class="sign-log">
+                        <a class="signin" href="#">로그아웃</a>
+                    </li>
+                    <li class="sign-log">
+                        <a class="reservation" href="#">예약확인</a>
+                    </li>
+                </ul>
+            </div>
             <!-- Header 양 쪽 margin 주기 위해 box 따로 만듦 -->
             <div class="header-box">
                 <a href="#">
-                <img src="img/logo.gif" alt="logo">
+                    <img class="header-img" src="img/logo.gif" alt="logo">
                 </a>
                 <div class="search">
                     <input type="text">
                     <a href="#" class="zoom"></a>
                 </div>
-                <div class="reservation">
-                    <span>
-                        <a href="#" id="reservation">
-                            예약 확인
-                        </a>
-                    </span>
+                <img src="img/imageBanner.png" alt="delivery image">
+                <div class="welcome">
+                    <p>
+                        User
+                    </p>
                 </div>
             </div>
         </div>
-
         <!-- Content -->
         <div class="content">
         </div>
@@ -65,12 +81,14 @@
                     <li>호스팅 서비스사업자 : 롯데하이마트 주식회사</li>
                 </ul>
                 <ul>
-                    <li>COPYRIGHTⓒ 2003-2020 <span class="red-text">LOTTEHIMART</span> CO., LTD. ALL RIGHT RESERVED.</li>
+                    <li>COPYRIGHTⓒ 2003-2020 <span class="red-text">LOTTEHIMART</span> CO., LTD. ALL RIGHT RESERVED.
+                    </li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="base.js"></script>
 </body>
+
 </html>

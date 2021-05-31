@@ -9,12 +9,12 @@ class CommentAdmin(admin.ModelAdmin):
     fieldsets = (
         (
             'Information',
-            {"fields": ("title","content","engineer")},
+            {"fields": ("content","engineer", "user")},
         ),
     )
 
     list_display = (
-        'title',
         'content',
         'engineer',
+        'user',
     )

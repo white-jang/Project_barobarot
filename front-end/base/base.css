@@ -11,6 +11,7 @@
 :root {
     --red: #f5232a;
     --footer-gray: #6A747C;
+    --header-gray: #e2e2e2;
 }
 
 body {
@@ -25,7 +26,7 @@ body {
 /* Header */
 
 .header {
-    width: 100%;
+    width: 80vw;
     border-bottom: 1px solid var(--red);
     padding: 0 10vw;
 }
@@ -35,13 +36,19 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    margin-top: 5vh;
+    height: 86px;
+    position: relative;
+}
+
+.header-img {
+    width: 241px;
+    height: 83px;
 }
 
 .search {
-    width: 508px;
-    margin-right: 3vw;
-    height: 50px;
+    min-width: 507px;
+    margin-right: auto;
+    height: 47px;
     display: flex;
     align-items: center;
     position: relative;
@@ -58,6 +65,7 @@ body {
     border: 0;
     background: 0;
     font-size: 16px;
+    font-family: 'Noto Sans KR';
 }
 
 .search.focused {
@@ -68,18 +76,11 @@ body {
 .zoom {
     width: 26px;
     height: 26px;
-    background: url('base/img/zoom.png') no-repeat 0 0;
+    background: url('img/zoom.png') no-repeat 0 0;
     position: absolute;
     top: 10px;
     right: 16px;
     line-height: 16px;
-}
-
-.reservation {
-    display: flex;
-    align-items: center;
-    flex-grow: 1;
-    min-width: 74px;
 }
 
 .header span {
@@ -88,12 +89,74 @@ body {
     font-size: 17px;
 }
 
-.reservation a {
+/* 예약확인도 로그인 .. 이랑 묶어서 해서 필요 없어졌어요  */
+/* .reservation a {
     color: var(--red);
     text-decoration: none;
     cursor: pointer;
+} */
+
+/* welcome 문구 */
+.welcome {
+    justify-self: flex-end;
+    min-width: 133px;
+    height: 20px;
+    text-align: center;
+    margin-left: 1vw;
+    border: solid var(--header-gray) 1px;
+    padding: 13px 12px;
+    border-radius: 20px;
+    background-color: var(--red);
+    color: white;
 }
 
+/* .welcome-margin{
+    margin-top: 15px;
+    margin-right: 100px;
+} */
+
+.user-box {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    height: 47px;
+}
+
+.user-box:after {
+    content: '';
+    width: 100vw;
+    border-bottom: 1px solid var(--header-gray);
+    position: absolute;
+    bottom: 0;
+    left: -10vw;
+}
+
+.sign-log-group {
+    display: flex;
+    align-items: center;
+}
+
+/* 로그인 회원가입 로그아웃 예약확인 */
+
+.sign-log a {
+    color: #585858;
+    padding: 0 9px;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.sign-log:not(:last-child) a {
+    border-right: 1px solid grey;
+}
+
+.sign-log a.reservation {
+    color: #f5232a;
+}
+
+.signin:hover {
+    cursor: pointer;
+    color: #f5232a;
+}
 
 /* ************************************************************ */
 
@@ -102,7 +165,7 @@ body {
 .footer {
     height: 200px;
     background-color: #232a32;
-    padding: 0 20vw;
+    padding: 0 17vw;
     display: flex;
     align-items: center;
 }
@@ -130,6 +193,7 @@ body {
 
 .description strong {
     font-size: 14px;
+    font-weight: bold;
 }
 
 .description a {
@@ -160,58 +224,3 @@ body {
 /* ************************************************************ */
 
 /* Content */
-
-/* 상품 개수 알려주는 div  */
-.first-info-box {
-    margin-top: 20px;
-    margin-left: 80px;
-}
-
-#first-info-normal {
-    font-size: 30px;
-}
-
-#first-info-bold {
-    font-size: 30px;
-    font-weight: bold;
-}
-
-/* 상품 img class */
-.pictures {
-    /* text-align: center; */
-    border: 0px solid gray;
-    overflow: hidden;
-    margin: 20px;
-}
-
-/* 사진 통째로 (div) class  */
-
-.product {
-    /* 상품들 가로 정렬  */
-    display: inline-block;
-}
-
-/* div id */
-#product-detail {
-    margin-left: 20px;
-    margin-bottom: 10px;
-}
-
-/* 상품의 이름 id  */
-#product-title {
-    /* 상품 사진하고 같은 너비로 제품 이름 너비설정 */
-    width: 200px;
-}
-
-/* 상품의 가격 id  */
-#product-price {
-    width: 200px;
-    font-weight: bold;
-    color: red;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.list {
-    margin-left: 45px;
-}

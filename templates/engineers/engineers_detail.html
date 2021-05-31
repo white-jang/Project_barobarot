@@ -1,0 +1,27 @@
+{% extends '../base.html' %} {% block content %}
+<h1>엔지니어 개인 프로필</h1>
+<h2>{{engineers.name}} / {{engineers.number}}</h2>
+<img src="{{ engineers.image.url }}" alt="{{engineers.name}}" width="300px" height="300px" />
+<br />
+<br /> {% for comment in engineers.comments.all %}
+<div>
+    <span>{{comment.user}} - {{ comment.title }} : {{ comment.content }} </span> {% if user == comment.user %}
+    <a href="{% url 'comments:delete_comment' engineers.id comment.id %}">
+        <button>삭제</button>
+    </a>
+    {% endif %}
+</div>
+{% endfor %}
+<div>
+    <form action="{% url 'comments:create_comment' engineers.id %}" method="POST">
+        {% csrf_token %}
+        <div>
+            <span>제목:</span>
+            <input type="text" name='title'></input>
+            <span>내용:</span>
+            <input type="text" name='content'></input>
+        </div>
+        <button type="submit">출력</input>
+    </form>
+</div>
+ {% endblock %}
